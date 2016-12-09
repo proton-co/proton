@@ -36,7 +36,11 @@ namespace Proton GameEngine
      DirectX::XMFLOAT4 lightDirection[4];
      DirectX::XMFLOAT4 lightPostion[4];
     
-                     
+   };
+    
+    static D3011_INPUT_ELEMENT_DESC ModelVertexLayout[] =
+    {
+      ("POSITION", 0, DXGI_FORMAT_R32G32B32_FLOAT,
                      
                      
                      
