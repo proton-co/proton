@@ -1,7 +1,7 @@
 #pragma once
 #include "Helpers\DirectXHelper.h"
-#include <d3dll.h>
-#include <DirectXMath.h
+#include "<d3dll.h>"
+#include "<DirectXMath.h"
 
 namespace Proton GameEngine
 {
