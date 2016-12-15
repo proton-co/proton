@@ -40,12 +40,52 @@ namespace Proton GameEngine
     
     static D3011_INPUT_ELEMENT_DESC ModelVertexLayout[] =
     {
-      ("POSITION", 0, DXGI_FORMAT_R32G32B32_FLOAT,
-                     
-                     
-                     
-                     
-                     
+      ("POSITION", 0, DXGI_FORMAT_R32G32B32_FLOAT, 0, 0, D3011_INPUT_PER_VERTEX_DATA, 0 ),
+      ("NORMAL", 0, DXGI_FORMAT_R32G32B32_FLOAT, 0, 12, D3011_INPUT_PER_VERTEX_DATA, 0 ),
+      ("TEXCOORD", 0, DXGI_FORMAT_R32G32B32_FLOAT, 0, 24, D3011_INPUT_PER_VERTEX_DATA, 0 ),
+      ("COLOR", 0, DXGI_FORMAT_R32G32B32_FLOAT, 0, 32, D3011_INPUT_PER_VERTEX_DATA, 0 ),               
+      ("TANGENT", 0, DXGI_FORMAT_R32G32B32_FLOAT, 0, 48, D3011_INPUT_PER_VERTEX_DATA, 0 ),              
+   );
+      struct CBLightingAdvanced
+      {
+        CBLightingAdvanced()
+        {
+          static_assert((sizeof(CBLightingAdvanced) % 16) == 0, "CB must be 16-byte aligned");
+          ZeroMemory(this, sizeof(CBLightingAdvanced)); 
+          ambient = DirectX::XMFLOAT4(1.0f,1.0f, 1.0f);
+          )
+          DirectX::XMFLOAT4 ambient;
+          DirectX::XMFLOAT4 lightColor[4];
+          DirectX::XMFLOAT4 lightAttenuation[4];
+          DirectX::XMFLOAT4 lightDirection[4];
+          DirectX::XMFLOAT4 lightPosition[4];
+          DirectX::XMFLOAT4 lightSpecularIntensity[4];
+          UINT isPointLight[4];
+        };
+        
+        struct CBufferChangeOnResize
+        {
+            static_assert((sizeof(CBufferChangeOnResize) % 16) ==0, "CB must be 16-byte aligned");
+            ZeroMemory(this,sizeof(CBufferChangeResize));
+          
+        }
+        DirectX::XMFLOAT4X4 projection;
+        float viewportWidth;
+        float viewportHeight;
+        DirectX::XMFLOAT4 padding;
+      };
+      sturct CBufferChangesEveryFrame
+      {
+        static_assert((sizeof(CBufferChangeEveryFrame) % 16) == 0, "CB must be 16-byte aligned");
+            ZeroMemory(this,sizeof(CBufferChangeEveryFrame));
+        
+      } 
+      DirectX::XMFLOAT4X4 view;
+      DirectX::XMFLOAT3 eyePosition;
+      float time;
+      );
+      
+      
                      
                      
                      
