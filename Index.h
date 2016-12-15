@@ -82,6 +82,7 @@ namespace Proton GameEngine
       } 
       DirectX::XMFLOAT4X4 view;
       DirectX::XMFLOAT3 eyePosition;
+      
       float time;
       );
       
